@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Awesome Javascript Quiz</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+
+</head>
+
+<body class="min-vh-100 d-flex flex-column bg-dark">
+    <section class="mx-auto  justify-content-center" style="width: 900px;">
+
+        <header class = "d-block p-2 bg-primary text-white sticky-top" >
+            <h6>Your Score: 0</h6>
+            <div class="time-left">Time Left:</div>
+            <div id="time-sec"></div>
+        </header>
+
+    <!-- start quiz button with info box-->
+        <section class="start-btn bg-white my-4 p-4 rounded">
+            <h2>Welcome to Awesome Fundamental Javascript Quiz!</h2>
+            <ol>
+                <li>There are 5 questions total and 100 seconds to start with</li>
+                <li>Every time you answer a question wrong, 5 seconds will be deducted.</li>
+                <li>Check the correct answer box below the question after each time you answer.</li>
+                <li>When the time run out or you answer all questions, whatever comes first, you will have to type in your initial and submit your reasult.</li>
+            </ol>
+            <button id = "start-btn" class="btn-success">Start Quiz</button>
+        </section>
+
+        <!-- Quiz box -->
+        <!-- <div class="quiz-box bg-white my-4 p-4 rounded"> -->
+            
+            
+            <div>
+                <section class="quiz-box bg-white my-4 p-4 rounded invisible" >
+                    <div class="questions">
+                        <!-- Insert questions from javascript -->
+                        <div class="question-container">
+                            <p class="question">1, How can you get the total number of arguments passed to a function?</p>
+                            <ul class="answers">
+                                <li class="answer-a">Using args.length property.</li>
+                                <li class="answer-b">Using arguments.length property.</li>
+                                <li class="answer-c">Both of the above.</li>
+                                <li class="answer-d">None of the above.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class=correct-answer>
+                        <h5>Correct Answer: Using arguments.length property.</h5>
+                    </div>
+                    <footer>
+                        <button class="next-btn btn btn-success">Next Question</button>
+                    </footer>
+                </section>    
+
+                <section class="quiz-box bg-white my-4 p-4 rounded invisible" >
+                    <div class="questions">
+                        <div class="question-container">
+                            <p class="question">2, Which built-in method combines the text of two strings and returns a new string?</p>
+                            <ul class="answers">
+                                <li class="answer-a">append()</li>
+                                <li class="answer-b">concat()</li>
+                                <li class="answer-c">attach()</li>
+                                <li class="answer-d">None of the above.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="correct-answer">
+                        <h5>Correct Answer: concat()</h5>
+                    </div>
+                    <footer>
+                        <button class="next-btn btn btn-success">Next Question</button>
+                    </footer>
+                </section>
+
+                <section class="quiz-box bg-white my-4 p-4 rounded invisible" >
+                    <div class="questions">
+                        <div class="question-container">
+                            <p class="question">3, Which of the following function of Boolean object returns the primitive value of the Bolean object?</p>
+                            <ul class="answers">
+                                <li class="answer-a">valueOf()</li>
+                                <li class="answer-b">toSource()</li>
+                                <li class="answer-c">toString()</li>
+                                <li class="answer-d">None of the above</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="correct-answer">
+                        <h5>COrrect Answer: valueOf()</h5>
+                    </div>
+                    <footer>
+                        <button class="next-btn btn btn-success">Next Question</button>
+                    </footer>
+                </section>    
+
+                <section class="quiz-box bg-white my-4 p-4 rounded invisible" >
+                    <div class="questions">
+                        <div class="question-container">
+                            <p class="question">4, What of the following function of String object extracts a section of a string and retuirns a new string?</p>
+                            <ul class="answers">
+                                <li class="answer-a">slice()</li>
+                                <li class="answer-b">split()</li>
+                                <li class="answer-c">replace()</li>
+                                <li class="answer-d">search()</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="correct-answer">
+                        <h5>Correct Answer: slice()</h5>
+                    </div>
+                    <footer>
+                        <button class="next-btn btn btn-success">Next Question</button>
+                    </footer>
+                </section>
+
+                <section class="quiz-box bg-white my-4 p-4 rounded" >
+                    <div class="questions">
+                        <div class="question-container">
+                            <p class="question">5, Which of the following of String object return the calling string value converted to upper case?</p>
+                            <ul class="answers">
+                                <li class="answer-a">toLocalUpperCase()</li>
+                                <li class="answer-b">toString()</li>
+                                <li class="answer-c">toUpperCase()</li>
+                                <li class="answer-d">substring()</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="answer-options">
+                        <h5>Correct Answer: toUpperCase()</h5>
+                    </div>
+                    <footer>
+                        <button class="next-btn btn btn-success">Next Question</button>
+                    </footer>
+                </section>
+
+            </div>
+
+
+        </div>
+
+        <!-- Result box -->
+        <div class=result-box>
+            
+            <div class="col-10 col-md-6 col-lg-5">
+                <!-- Bootstrap preset color classes for backgrounds and text -->
+                <h4 class="display-3 text-center text-white">You're done!</h3>
+                <!-- Use p - for classes that set padding -->
+                <!-- Use m - for classes that set margin -->
+                <form class="bg-white my-4 p-4 rounded">
+                    <header>
+                        <h5>Your Score: 0</h4>
+                        <div class="time-left">Time Left: 0</div>
+                        <div class="time-sec">0</div>
+                    </header>
+                    
+                        <h5>Put your initial and submit!</h5>
+                        <div class="form-group">
+                            <label for="initial">Your Initials</label>
+                            <input type="text" id="initial" class="form-control" placeholder="Initials" required />
+                            <button class="btn btn-success">Submit</button>
+                        </div>
+                </form> 
+            </div>
+               
+        </div>
+    </section>
+
+    <script src="script2.js"></script>
+</body>
+
+
+
+</html>
