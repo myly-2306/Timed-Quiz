@@ -1,4 +1,5 @@
-section h5 {
-    visibility: hidden;
-}
 
+
+.hidden {
+    display: none;
+}
