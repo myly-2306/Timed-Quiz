@@ -23,3 +23,4 @@ This's a pretty hard assignment for a beginner and has only 1 week to get done.
 
 Thanks for being interested!
 
+https://myly-2306.github.io/Timed-Quiz/
