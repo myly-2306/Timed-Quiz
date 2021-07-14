@@ -31,10 +31,7 @@
             <button id = "start-btn" class="btn-success">Start Quiz</button>
         </section>
 
-        <!-- Quiz box -->
-        <!-- <div class="quiz-box bg-white my-4 p-4 rounded"> -->
-            
-            
+            <!-- Quiz box -->
             <div>
                 <section class="quiz-box bg-white my-4 p-4 rounded hidden" >
                     <div>
@@ -64,7 +61,7 @@
             </div>
 
 
-        </div>
+        
 
         <!-- Result box -->
         <div class="result-box hidden">
@@ -72,8 +69,6 @@
             <div class="col-10 col-md-6 col-lg-5">
                 <!-- Bootstrap preset color classes for backgrounds and text -->
                 <h4 class="display-3 text-center text-white">You're done!</h3>
-                <!-- Use p - for classes that set padding -->
-                <!-- Use m - for classes that set margin -->
                 <form class="bg-white my-4 p-4 rounded">
                     <header>
                         <h5>Your Score:<span class="user-score"></span></h4>
@@ -85,11 +80,25 @@
                         <div class="form-group">
                             <label for="initials">Your Initials</label>
                             <input type="text" id="initials" class="form-control" placeholder="Initials" required />
-                            <button class="btn btn-success">Submit</button>
+                            <button class="submit-btn btn btn-success">Submit</button>
                         </div>
                 </form> 
             </div>
                
+        </div>
+
+        <div class="score-box bg-white my-4 p-4 rounded hidden">
+            <div >
+                <form>
+                    <header>
+                        <h4>High Scores</h4>
+                    </header>
+                    <div>
+                        <input type="text" class="init-score form-control"> <br>
+                        <button class="btn btn-success">Go Back</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 

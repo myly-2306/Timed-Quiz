@@ -1,12 +1,4 @@
-// Quiz app - javascript psuedo code
-// Known things
-// - Welcome message
-// - there's a start button
-// - there's a timer (set to 100 seconds)
-// - there's current score display (default: 0)
-// - there's a link to view high scores
-// How many questions - 5
-// how many possible answers - 4
+
 var questions = [
     {
       question: 'How can you get the total number of arguments passed to a function?',
@@ -35,17 +27,6 @@ var questions = [
     },
 ]
 
-
-  // If the user answers the question correctly, user gets 2 points
-  // If the user answers the question incorrectly, deduct 5 seconds from the timer
-  // After all the questions have been answered, prompt the user for initials to save score
-  // If time runs out, prompt the user for initials to save score
-  // If user answers a question inccorectly, you show the correct answer on the bottom and notify user that he/she picked the wrong answer.
-  // Start Button
-  // When user clicks on Start button, 
-  //  - start the timer
-//   setInterval(startTimer, 1000);
-  
   var currentScore = 0;
   var currentQuestionIndex;
   var highScores = [];
@@ -58,10 +39,9 @@ var questions = [
   var userScore = document.querySelector('.user-score');
   var resultBox = document.querySelector('.result-box');
   var userInitials = document.querySelector('#initials');
-  
-//   var startBtn = document.getElementById("startbtn");
-  // Pure Funnctions - only perform things that the function is supposed
-  // to do, nothing else
+  var submitBtn = document.querySelector('.submit-btn');
+  var initAndScore = document.querySelector('.init-score');
+  var scoreBox = document.querySelector('.score-box');
 
   
   var startBtn = document.querySelector("#start-btn");
@@ -83,41 +63,7 @@ var questions = [
     }, 1000);
   };
 
-
-
-
-
-
-
-
-  // start the timer countdown
-//   startBtn.addEventListener("click", function(event) {
-//       event.preventDefault(); 
-
-//         // function startTimer() {
-         
-//         timeLeft--;
-//         timeSec.textContent = timeLeft + "seconds!";
-//     // Goal: decrease the amount of time left
-//     // is timer equal to 0 (time's up)
-//         if (timeLeft <= 0) {
-//         // time is up, quiz ends, prompt user for initials
-//         // Stop the timer
-//         clearInterval(startBtn);
-//         // Define function for prompting for initials
-//         sendToInitials();
-//         } else { // if not, we subtract 1 second
-//         timeLeft--; // timeLeft = timeLeft - 1
-//         }
-//     })
-//   ;
-// function displayCorrectAnswer() {
-//     showCorrectAnswer.style.visibility = "visible";
-// }
-
-
-  // READ localStorage.getItem(<KEY>)
-  // SAVE localStorage.setItem(<KEY>, <VALUE>)
+ 
   function startQuiz() {
     welcomeBox.classList.add('hidden');
     // TODO: Read high scores from localStorage and store it in
@@ -141,9 +87,6 @@ var questions = [
 
   
 
-  
-  
-
   function showNextQuestion() {
     var currentQuestion;  
     var questionEl = document.querySelector('.question');
@@ -151,11 +94,6 @@ var questions = [
     var answerB_El = document.querySelector('.answer-b');
     var answerC_El = document.querySelector('.answer-c');
     var answerD_El = document.querySelector('.answer-d');
-    // var correctAnswer1 = document.querySelector("#answer-1");
-    // var correctAnswer2 = document.querySelector("#answer-2");
-    // var correctAnswer3 = document.querySelector("#answer-3");
-    // var correctAnswer4 = document.querySelector("#answer-4");
-    // var correctAnswer5 = document.querySelector("#answer-5");
     
     // if the value of currentQuestionIndex is equal to the length of the "questions" array, then quiz is over.
     console.log(currentQuestionIndex, questions.length);
@@ -169,8 +107,6 @@ var questions = [
       currentQuestion = questions[currentQuestionIndex];
       // Retrieve the actual question
       questionEl.innerText = currentQuestion.question; // What is 2+2?
-      // currentQuestion.answers
-      // currentQuestion.correctAnswer
       // Iterate through the answers array and display each answer
     //   for (var i = 0; i < currentQuestion.answers.length; i++) {
     //   }
@@ -267,21 +203,26 @@ function sendToInitials() {
     var initials = '';
     resultBox.classList.remove('hidden');
     // TODO: Retrieve currentScore
-    userInitials = localStorage.getItem('userInitials'); 
     var newScore = {
-      userInitials: initials,
-      userScore: currentScore
-    }
+      userInitials: initials.value,
+      userScore: currentScore.value,
+    };
     // Add initials and currentScore to highScores array
     highScores.push(newScore);
     // TODO: Save highScores to localStorage
+    localStorage.setItem("newScore", JSON.stringify(newScore));
+    // click on submit button to get high Scores
+    submitBtn.addEventListener("click", function(event) {
+      event.preventDefault();
+    
+      var highScores = JSON.parse(localStorage.getItem("newScore"));
+      initAndScore.innerText = highScores;
+      scoreBox.classList.remove('hidden');
+    
+    });
+      
   }
   
-
-
-
-
-
 
 
 
